@@ -1,0 +1,56 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/"><i class="fas fa-plane-departure me-2"></i>AirJourney</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/flights" routerLinkActive="active">Flights</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/checkin" routerLinkActive="active">Check-In</a>
+      </li>
+    </ul>
+  </div>
+    <div class="ms-auto d-flex me-2">
+    <ul class="navbar-nav d-flex gap-2">
+      <li class="nav-item" *ngIf="!loggedIn">
+        <a class="btn btn-outline-primary mr-2" routerLink="/login" style="padding: 5px 15px;">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="!loggedIn">
+        <a class="btn btn-primary" routerLink="/register" style="padding: 5px 15px;">Register</a>
+      </li>
+      <li class="nav-item" *ngIf="loggedIn">
+        <button class="btn btn-danger" (click)="logout()" style="padding: 5px 15px;">Logout</button>
+      </li>
+    </ul>
+  
+  </div>
+</nav>
+
+<style>
+  
+  .navbar-nav .nav-item .nav-link.active {
+    font-weight: bold;
+    color: #0056b3;
+
+  }
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 15px;
+    color: #0056b3;
+  }
+  .navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  .btn {
+    border-radius: 20px;
+  }
+</style>

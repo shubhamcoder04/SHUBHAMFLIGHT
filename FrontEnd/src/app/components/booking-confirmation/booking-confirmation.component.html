@@ -1,0 +1,59 @@
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+
+<div class="container mt-5">
+  <div class="alert alert-success text-center">
+    <h2><i class="fas fa-check-circle me-2"></i>Congratulations, Booking Successful!</h2>
+  </div>
+  <div *ngIf="booking && flightDetails">
+    <div *ngFor="let passenger of booking.passengers; let i = index" class="ticket shadow-lg p-4 bg-white mb-4 rounded">
+      <div class="ticket-header text-center bg-primary text-white p-3 rounded-top">
+        <h3 class="mb-0"><i class="fas fa-plane-departure me-2"></i>Airline Ticket</h3>
+      </div>
+      <div class="ticket-body p-4">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <p><strong>Name:</strong> {{ passenger.name }}</p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>Flight:</strong> {{ flightDetails.flight_ID }}</p>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <p><strong>Date:</strong> {{ flightDetails.departure_Time | date:'shortDate' }}</p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>Boarding Time:</strong> {{ flightDetails.departure_Time | date:'shortTime' }}</p>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <p><strong>From:</strong> {{ flightDetails.source }}</p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>To:</strong> {{ flightDetails.destination }}</p>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <p><strong>Seat:</strong> A{{ i + 1 }}</p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>Gate:</strong> A27</p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>Booking ID:</strong> {{ booking.booking_Id }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-end">
+            <p><strong>Fare:</strong> {{ flightDetails.fare | currency:'INR' }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

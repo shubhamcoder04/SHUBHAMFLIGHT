@@ -1,0 +1,57 @@
+/* 
+
+.container {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    opacity: 0.2;
+    border-radius: 10px;
+}
+
+.list-group-item {
+    background-color: rgba(255, 255, 255, 0.8); 
+} */
+.search{
+  margin-bottom: 30px;
+  margin-top: -30px;
+}
+
+body {
+  background: url('https://example.com/your-background-image.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8); /* White overlay with opacity */
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.9); /* Slightly opaque white background for content */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.list-group-item {
+  background-color: rgba(255, 255, 255, 0.9); /* Make list items background slightly transparent */
+}

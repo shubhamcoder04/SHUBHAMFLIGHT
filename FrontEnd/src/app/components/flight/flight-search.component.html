@@ -1,0 +1,72 @@
+
+ <div class="container mt-5">
+  <div class="card shadow-sm p-4">
+    <form [formGroup]="searchForm" (ngSubmit)="searchFlights(); $event.preventDefault();" class="row g-3 align-items-center">
+      <div class="col-md-3">
+        <label for="source" class="form-label"><i class="fas fa-plane-departure me-2"></i>From</label>
+        <input type="text" class="form-control" id="source" formControlName="source" placeholder="Enter source" />
+        <div *ngIf="searchForm.controls['source'].invalid && searchForm.controls['source'].touched" class="text-danger">
+          Source is required.
+        </div>
+      </div>
+      <div class="col-md-1 text-center">
+        <i class="fas fa-exchange-alt fa-2x text-primary"></i>
+      </div>
+      <div class="col-md-3">
+        <label for="destination" class="form-label"><i class="fas fa-plane-arrival me-2"></i>To</label>
+        <input type="text" class="form-control" id="destination" formControlName="destination" placeholder="Enter destination" />
+        <div *ngIf="searchForm.controls['destination'].invalid && searchForm.controls['destination'].touched" class="text-danger">
+          Destination is required.
+        </div>
+        <div *ngIf="searchForm.errors?.['sameLocation'] && searchForm.controls['destination'].touched" class="text-danger">
+          Source and destination cannot be the same.
+        </div>
+      </div>
+      <div class="col-md-2">
+        <label for="date" class="form-label"><i class="fas fa-calendar-alt me-2"></i>Depart</label>
+        <input class="form-control" type="date" id="date" formControlName="date" />
+        <div *ngIf="searchForm.controls['date'].invalid && searchForm.controls['date'].touched" class="text-danger">
+          <div *ngIf="searchForm.controls['date'].errors?.['required']">
+            Date is required.
+          </div>
+          <div *ngIf="searchForm.controls['date'].errors?.['pastDate']">
+            Date cannot be in the past.
+          </div>
+          <div *ngIf="searchForm.controls['date'].errors?.['futureDate']">
+            Date must be within the next 2 months.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 text-end">
+        <button class="btn btn-primary btn-lg" type="submit" [disabled]="searchForm.invalid">
+          <i class="fas fa-search me-2"></i>Search
+        </button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+  <div class="flight-results mt-4" *ngIf="flights.length > 0">
+    <h3 class="mb-4 text-center">Search Results</h3>
+    <div *ngFor="let flight of flights" class="card mb-3">
+      <div class="card-body d-flex align-items-center justify-content-between">
+        <img src="https://via.placeholder.com/50" class="img-fluid me-3" alt="Airline Logo" style="width: 50px; height: 50px;">
+        <div class="flight-info">
+          <h5 class="mb-0"><i class="fas fa-plane-departure me-2"></i>{{ flight.departure_Time | date:'HH:mm' }}</h5>
+          <small>{{ flight.source }}</small>
+        </div>
+        <div class="text-center">
+          <small><i class="fas fa-clock me-1"></i>Time - Nonstop</small>
+        </div>
+        <div class="flight-info">
+          <h5 class="mb-0"><i class="fas fa-plane-arrival me-2"></i>{{ flight.arrival_Time | date:'HH:mm' }}</h5>
+          <small>{{ flight.destination }}</small>
+        </div>
+        <div class="text-end">
+          <h5 class="mb-0 text-danger"><i class=""></i>{{ flight.fare | currency:'INR' }}</h5>
+        </div>
+        <button class="btn btn-primary ms-3" (click)="onBooking(flight.flight_ID)"><i class="fas fa-ticket-alt me-2"></i>BOOK NOW</button>
+      </div>
+    </div>
+  </div>
+</div>
+

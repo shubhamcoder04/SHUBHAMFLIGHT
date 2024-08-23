@@ -1,0 +1,30 @@
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<div class="container mt-5">
+  <h1 class="mb-4 text-center text-primary">Available Flights</h1>
+
+  <div *ngIf="flights.length > 0" class="row">
+    <div *ngFor="let flight of flights" class="col-md-6 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ flight.airline }}</h5>
+          <p class="card-text"><strong>From:</strong> {{ flight.source }}</p>
+          <p class="card-text"><strong>To:</strong> {{ flight.destination }}</p>
+          <p class="card-text"><strong>Departure:</strong> {{ flight.departure_Time | date:'short' }}</p>
+          <p class="card-text"><strong>Arrival:</strong> {{ flight.arrival_Time | date:'short' }}</p>
+          <p class="card-text"><strong>Seats:</strong> {{ flight.total_Seats }}</p>
+          <p class="card-text"><strong>Fare:</strong> ${{ flight.fare }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="flights.length === 0" class="alert alert-warning text-center">
+    No flights available.
+  </div>
+</div>
+
+
+

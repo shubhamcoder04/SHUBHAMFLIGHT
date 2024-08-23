@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <h1 class="mb-4 text-center text-primary">Welcome to the Air Journey</h1>
+  <!-- <div class="search"><app-flight-search></app-flight-search></div> -->
+  <div class="list-group">
+
+    <a class="list-group-item list-group-item-action d-flex align-items-center text-success bg-light mb-3 py-3"
+      routerLink="/flights/all">
+      <i class="fas fa-plane me-3"></i> All Flights
+    </a>
+
+    
+    <ng-container *ngIf="!isAdmin">
+    <a class="list-group-item list-group-item-action d-flex align-items-center text-primary bg-light mb-3 py-3"
+      routerLink="/checkin">
+      <i class="fas fa-plane-departure me-3"></i> Check-In
+    </a>
+
+    <a class="list-group-item list-group-item-action d-flex align-items-center text-danger bg-light mb-3 py-3"
+      routerLink="/cancel-booking">
+      <i class="fas fa-times me-3"></i> Cancel Booking
+    </a>
+    <a class="list-group-item list-group-item-action d-flex align-items-center text-warning bg-light mb-3 py-3"
+      routerLink="/view-booking">
+      <i class="fas fa-ticket-alt me-3"></i> View Booking
+    </a>
+  </ng-container>
+
+    <ng-container *ngIf="isAdmin">
+
+      <a class="list-group-item list-group-item-action d-flex align-items-center text-info bg-light mb-3 py-3"
+        routerLink="/flight/add">
+        <i class="fas fa-plus me-3"></i> Add Flight
+      </a>
+
+      <div class="list-group-item d-flex align-items-center bg-light py-3">
+        <i class="fas fa-edit me-3 text-secondary"></i>
+        <input type="number" [(ngModel)]="flightId" class="form-control me-2" placeholder="Enter Flight ID" />
+        <button class="btn btn-outline-primary" (click)="navigateToEditFlight()">Edit Flight</button>
+      </div>
+
+    </ng-container>
+
+
+  </div>
+</div>

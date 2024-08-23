@@ -1,0 +1,63 @@
+
+
+
+body, html {
+  /* height: 100%;
+  margin-bottom: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("C:\Users\sverma1\Documents\ASP.NETCORE\CaseStudy\FIlghtBookingSystemAspWebApi\FrontEnd\src\assets\airplane-background.jpg") no-repeat center center fixed;
+  background-size: 148%; */
+  height: 100%;
+  margin-bottom: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('/assets/login-3.jpg') no-repeat center center fixed;
+  background-size: 148%; 
+ 
+  overflow: hidden;
+}
+
+
+body {
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 500px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+h2 {
+  color: #007bff;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-control {
+  border-radius: .25rem;
+  border: 1px solid #ced4da;
+  padding: .5rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  border-radius: .25rem;
+  padding: .5rem 1rem;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.text-danger {
+  font-size: .875rem;
+}

@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Booking</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="view-booking.component.css">
+</head>
+<body>
+    <div class="view-booking-container mt-3">
+        <h2><i class="fas fa-search"></i> View Booking</h2>
+        <form (ngSubmit)="viewBooking()">
+            <div class="form-group">
+                <label for="bookingId"><i class="fas fa-id-badge"></i> Booking ID:</label>
+                <input id="bookingId" [(ngModel)]="bookingId" name="bookingId" required class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-eye"></i> View Booking</button>
+        </form>
+      
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      
+        <div *ngIf="bookingDetails" class="booking-details">
+            <h3><i class="fas fa-info-circle"></i> Booking Details</h3>
+            <div>
+                <label>Booking ID:</label>
+                <span>{{ bookingDetails.booking_Id }}</span>
+            </div>
+            <div>
+                <label>Flight ID:</label>
+                <span>{{ bookingDetails.flight_ID }}</span>
+            </div>
+            <div>
+                <label>User ID:</label>
+                <span>{{ bookingDetails.user_ID }}</span>
+            </div>
+            <div>
+                <label>Total Amount:</label>
+             <span>{{ bookingDetails.total_Amount | currency:'INR':'symbol' }}</span>
+
+            </div>
+            <div>
+                <label>Transaction Number:</label>
+                <span>{{ bookingDetails.transactionnum }}</span>
+            </div>
+            <div>
+                <label>Number of Passengers:</label>
+                <span>{{ bookingDetails.no_of_passengers }}</span>
+            </div>
+      
+            <div *ngIf="bookingDetails.passengers.length" class="passenger-info">
+                <h4><i class="fas fa-users"></i> Passengers</h4>
+                <div *ngFor="let passenger of bookingDetails.passengers; let i = index" class="passenger">
+                    <div>
+                        <label>Passenger {{ i + 1 }}:</label>
+                        <div>
+                            <label>Name:</label>
+                            <span>{{ passenger.name }}</span>
+                        </div>
+                        <div>
+                            <label>Age:</label>
+                            <span>{{ passenger.age }}</span>
+                        </div>
+                        <div>
+                            <label>Gender:</label>
+                            <span>{{ passenger.gender }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

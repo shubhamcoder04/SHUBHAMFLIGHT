@@ -1,0 +1,180 @@
+/* 
+
+.container {
+  margin-top: 20px;
+}
+
+.flight-details {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.flight-info {
+  padding: 10px 0;
+}
+
+.fare-summary {
+  padding: 10px;
+}
+
+.fare-summary h3,
+.fare-summary h4,
+.fare-summary p {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  width: auto;
+  font-size: 14px;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.text-danger {
+  font-size: 0.875rem;
+  margin-top: 0.2rem;
+}
+
+h2, h3, h4, p {
+  display: flex;
+  align-items: center;
+}
+
+h2 i, h3 i, h4 i, p i {
+  margin-right: 10px;
+} */
+
+
+
+
+/* Global Styles */
+body {
+  background-color: #f5f5f5;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  margin-top: 30px;
+}
+
+/* Ticket Styles */
+.ticket {
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-header {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 0.375rem 0.375rem 0 0;
+}
+
+.ticket-body {
+  padding: 20px;
+}
+
+.ticket-body p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.ticket-body .row {
+  margin-bottom: 15px;
+}
+
+/* Header and Footer Styles */
+.alert-success {
+  border-radius: 0.375rem;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.alert-success h2 {
+  margin: 0;
+}
+
+h2 i, h3 i, h4 i, p i {
+  margin-right: 10px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-end {
+  text-align: end;
+}
+
+/* Button Styles */
+.btn {
+  border-radius: 0.375rem;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+/* Miscellaneous */
+.text-danger {
+  font-size: 0.875rem;
+  margin-top: 0.2rem;
+}
+
+h2, h3, h4, p {
+  display: flex;
+  align-items: center;
+}

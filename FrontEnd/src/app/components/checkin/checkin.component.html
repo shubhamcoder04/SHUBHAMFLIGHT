@@ -1,0 +1,32 @@
+
+ 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<div class="container">
+  <h2 class="mb-4"><i class="fas fa-plane"></i> Check In</h2>
+  
+  <div class="form-group">
+    <label for="bookingId"><i class="fas fa-id-card"></i> Booking ID</label>
+    <input type="number" id="bookingId" [(ngModel)]="checkInRequest.booking_Id" class="form-control" placeholder="Enter your Booking ID" />
+  </div>
+  
+  <div class="form-group">
+    <label for="email"><i class="fas fa-envelope"></i> Email</label>
+    <input type="email" id="email" [(ngModel)]="checkInRequest.email" class="form-control" placeholder="Enter your Email" />
+  </div>
+  
+  <button (click)="onCheckIn()" class="btn btn-primary"><i class="fas fa-check-circle"></i> Check In</button>
+  
+  <div *ngIf="checkInResponse" class="alert alert-success mt-3">
+    <p><i class="fas fa-check"></i> Check-in successful!</p>
+    <p><strong><i class="fas fa-chair"></i> Seat Number:</strong> {{ checkInResponse.seatNumber }}</p>
+    <p><strong><i class="fas fa-id-card"></i> Booking ID:</strong> {{ checkInResponse.bookingId }}</p>
+    <p><strong><i class="fas fa-info-circle"></i> Check-In Status:</strong> {{ checkInResponse.checkInStatus }}</p>
+    <p><strong><i class="fas fa-plane-departure"></i> Flight ID:</strong> {{ checkInResponse.flightId }}</p>
+  </div>
+  
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+    <i class="fas fa-exclamation-triangle"></i> {{ errorMessage }}
+  </div>
+</div>

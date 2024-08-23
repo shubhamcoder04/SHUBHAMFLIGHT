@@ -1,0 +1,107 @@
+<!-- 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="user-login.component.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">User Login</h2>
+        <form (ngSubmit)="loginUser()" #loginForm="ngForm" class="border p-4 rounded shadow-sm bg-light">
+            <div class="form-group mb-3">
+                <label for="email" class="form-label">
+                    <i class="fas fa-envelope me-2 text-primary"></i>Email:
+                </label>
+                <input type="email" id="email" class="form-control" [(ngModel)]="user.email" name="email" required>
+                <div *ngIf="loginForm.submitted && loginForm.controls['email'].errors" class="text-danger mt-1">
+                    <div *ngIf="loginForm.controls['email'].errors['required']">Email is required.</div>
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="password" class="form-label">
+                    <i class="fas fa-lock me-2 text-primary"></i>Password:
+                </label>
+                <input type="password" id="password" class="form-control" [(ngModel)]="user.password" name="password" required>
+                <div *ngIf="loginForm.submitted && loginForm.controls['password'].errors" class="text-danger mt-1">
+                    <div *ngIf="loginForm.controls['password'].errors['required']">password is required.</div>
+                </div>
+
+
+
+
+
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+                <i class="fas fa-sign-in-alt me-2"></i>Login
+            </button>
+        </form>
+        <div *ngIf="loginResponse" class="mt-4">
+            <h3 class="text-center">Login Response</h3>
+            <pre>{{ loginResponse | json }}</pre>
+        </div>
+    </div>
+
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="user-login.component.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">User Login</h2>
+        <form (ngSubmit)="loginUser()" #loginForm="ngForm" class="border p-4 rounded shadow-sm bg-light">
+            <div class="form-group mb-3">
+                <label for="email" class="form-label">
+                    <i class="fas fa-envelope me-2 text-primary"></i>Email:
+                </label>
+                <input type="email" id="email" class="form-control" [(ngModel)]="user.email" name="email" required email>
+                <div *ngIf="loginForm.controls['email']?.invalid && loginForm.controls['email']?.touched" class="text-danger mt-1">
+                    <div *ngIf="loginForm.controls['email']?.errors?.['required']">Email is required.</div>
+                    <div *ngIf="loginForm.controls['email']?.errors?.['email']">Enter a valid email address.</div>
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="password" class="form-label">
+                    <i class="fas fa-lock me-2 text-primary"></i>Password:
+                </label>
+                <input type="password" id="password" class="form-control" [(ngModel)]="user.password" name="password" required>
+                <div *ngIf="loginForm.controls['password']?.invalid && loginForm.controls['password']?.touched" class="text-danger mt-1">
+                    <div *ngIf="loginForm.controls['password']?.errors?.['required']">Password is required.</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+                <i class="fas fa-sign-in-alt me-2"></i>Login
+            </button>
+        </form>
+        <div *ngIf="loginResponse" class="mt-4">
+            <h3 class="text-center">Login Response</h3>
+            <pre>{{ loginResponse | json }}</pre>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2 class="mb-4"><i class="fas fa-plane-departure"></i> Complete your booking</h2>
+      <div class="flight-details mb-3">
+        <div *ngIf="flightDetails">
+          <div class="flight-info">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h3><i class="fas fa-map-marked-alt"></i> {{ flightDetails.source }} → {{ flightDetails.destination }}</h3>
+              <span><i class="fas fa-calendar-alt"></i> {{ flightDetails.departure_Time | date:'shortDate' }}</span>
+            </div>
+            <p class="mb-1"><strong><i class="fas fa-plane"></i> {{ flightDetails.airline }} - Flight ID:</strong> {{ flightDetails.flight_ID }}</p>
+            <p class="mb-1"><strong><i class="fas fa-clock"></i> Departure:</strong> {{ flightDetails.departure_Time | date:'shortTime' }}</p>
+            <p class="mb-1"><strong><i class="fas fa-clock"></i> Arrival:</strong> {{ flightDetails.arrival_Time | date:'shortTime' }}</p>
+          </div>
+        </div>
+      </div>
+
+      <form (ngSubmit)="bookFlight()" #bookingForm="ngForm">
+        <div class="form-group">
+          <label for="passengers" class="mb-3"><i class="fas fa-users"></i> Passengers</label>
+          <div class="d-flex gap-2 flex-wrap mb-3" *ngFor="let passenger of booking.passengers; let i = index">
+            <div class="form-group">
+              <input 
+                type="text" 
+                class="form-control mb-2" 
+                placeholder="Name" 
+                [(ngModel)]="passenger.name" 
+                name="name{{i}}"
+                required
+                #name="ngModel" 
+              >
+              <div *ngIf="name.invalid && name.touched" class="text-danger">
+                <i class="fas fa-exclamation-circle"></i> Name is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <input 
+                type="number" 
+                class="form-control mb-2" 
+                placeholder="Age" 
+                [(ngModel)]="passenger.age" 
+                name="age{{i}}"
+                required
+                min="1"
+                #age="ngModel"
+              >
+              <div *ngIf="age.invalid && age.touched" class="text-danger">
+                <i class="fas fa-exclamation-circle"></i> Age is required and must be a positive number.
+              </div>
+            </div>
+            <div class="form-group">
+              <select 
+                class="form-control mb-2" 
+                [(ngModel)]="passenger.gender" 
+                name="gender{{i}}"
+                required
+                #gender="ngModel"
+              >
+                <option value="" disabled>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Female">Others</option>
+              </select>
+              <div *ngIf="gender.invalid && gender.touched" class="text-danger">
+                <i class="fas fa-exclamation-circle"></i> Gender is required.
+              </div>
+            </div>
+            <button type="button" class="btn btn-danger mb-2" (click)="removePassenger(i)">
+              <i class="fas fa-trash-alt"></i> Remove Passenger
+            </button>
+          </div>
+          <button type="button" class="btn btn-secondary" (click)="addPassenger()" [disabled]="checkMaxPass()">
+            <i class="fas fa-user-plus "></i> Add Passenger
+          </button>
+        </div>
+        <div *ngIf="booking.passengers.length === 0 && (bookingForm.submitted || bookingForm.dirty)" class="text-danger">
+          <i class="fas fa-exclamation-circle"></i> Please add at least one passenger before booking.
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="booking.passengers.length === 0">
+          <i class="fas fa-plane"></i> Book Flight
+        </button>
+      </form>
+    </div>
+
+    <div class="col-md-4">
+      <div class="fare-summary card mt-4">
+        <div class="card-body">
+          <h3><i class="fas fa-receipt"></i> Fare Summary</h3>
+          <p><i class="fas fa-money-bill-wave"></i> Base Fare: ₹{{ flightDetails?.fare }}</p>
+          <p><i class="fas fa-file-invoice-dollar"></i> Taxes and Surcharges: ₹400</p>
+          <p><i class="fas fa-tags"></i> Total Discount: -₹400</p>
+          <h4><i class="fas fa-hand-holding-usd"></i> Total Amount: ₹{{ booking.total_Amount }}</h4>
+          <!-- <button class="btn btn-success mt-3" (click)="continueBooking()">
+            <i class="fas fa-check"></i> Continue Booking
+          </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

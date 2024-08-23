@@ -1,0 +1,86 @@
+.view-booking-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: .5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.view-booking-container h2 {
+    margin-bottom: 1rem;
+    color: #007bff;
+   font-size: medium;
+}
+
+.view-booking-container form {
+    margin-bottom: 1rem;
+}
+
+.view-booking-container .form-group label {
+    font-weight: bold;
+}
+
+.view-booking-container .form-group input {
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+    padding: .5rem;
+}
+
+.view-booking-container .btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: .25rem;
+    padding: .5rem 1rem;
+}
+
+.view-booking-container .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: #dc3545;
+    margin-top: 1rem;
+}
+
+.booking-details {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: .5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.booking-details h3 {
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.booking-details div {
+    margin-bottom: .5rem;
+}
+
+.booking-details label {
+    font-weight: bold;
+}
+
+.booking-details .passenger-info {
+    margin-top: 1rem;
+}
+
+.booking-details .passenger-info h4 {
+    margin-bottom: .5rem;
+    color: #007bff;
+}
+
+.booking-details .passenger-info .passenger {
+    margin-bottom: 1rem;
+    padding: .5rem;
+    background-color: #f8f9fa;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+}
+
+.booking-details .passenger-info .passenger label {
+    font-weight: normal;
+}
